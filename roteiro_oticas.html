@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roteiro de Óticas · Salamanca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,900&family=Spline+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1410;
+    --paper:#f4ece0;
+    --paper-2:#ebe0cf;
+    --accent:#c1452e;
+    --accent-2:#2d5d4f;
+    --gold:#b6822e;
+    --line:#d8cab3;
+    --shadow:rgba(40,28,15,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:'Spline Sans',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(circle at 1px 1px, rgba(120,90,50,.07) 1px, transparent 0);
+    background-size:22px 22px;
+  }
+  .wrap{max-width:560px;margin:0 auto;padding:0 18px 60px}
+
+  header{
+    padding:46px 0 30px;
+    text-align:center;
+    position:relative;
+  }
+  .kicker{
+    font-size:.72rem;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    font-size:2.7rem;
+    line-height:1.02;
+    letter-spacing:-.01em;
+  }
+  h1 em{font-style:italic;color:var(--accent-2)}
+  .sub{
+    margin-top:16px;
+    font-size:.95rem;
+    color:#6a5b48;
+    max-width:330px;
+    margin-left:auto;margin-right:auto;
+  }
+  .rule{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    margin:26px 0 4px;color:var(--gold);
+  }
+  .rule::before,.rule::after{content:"";height:1px;width:54px;background:var(--line)}
+  .rule span{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;font-weight:600;color:#9b8straight}
+
+  /* Metro card */
+  .metro{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:18px;
+    padding:24px 22px;
+    margin:14px 0 36px;
+    box-shadow:0 14px 34px var(--shadow);
+  }
+  .metro h2{
+    font-family:'Fraunces',serif;font-weight:600;font-size:1.25rem;
+    margin-bottom:14px;display:flex;align-items:center;gap:9px;
+  }
+  .mpin{
+    width:24px;height:24px;border-radius:50%;
+    background:var(--accent);display:grid;place-items:center;
+    font-size:.7rem;font-weight:700;flex:none;color:#fff;
+  }
+  .leg{display:flex;align-items:flex-start;gap:13px;padding:9px 0}
+  .leg + .leg{border-top:1px dashed rgba(244,236,224,.18)}
+  .line-badge{
+    font-weight:700;font-size:.82rem;flex:none;
+    width:26px;height:26px;border-radius:7px;display:grid;place-items:center;color:#fff;
+  }
+  .l4{background:#a04f9e}
+  .l9{background:#9c1e2d}
+  .l5{background:#8fc63d;color:#1a1410}
+  .leg p{font-size:.9rem;color:#e5dac8}
+  .leg b{color:#fff;font-weight:600}
+
+  /* Stops */
+  .stops{position:relative;padding-left:8px}
+  .stop{
+    position:relative;
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px 18px 18px 20px;
+    margin-bottom:16px;
+    box-shadow:0 4px 14px rgba(40,28,15,.05);
+  }
+  .stop-top{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+  .num{
+    font-family:'Fraunces',serif;font-weight:900;
+    font-size:1.55rem;color:var(--accent);line-height:1;flex:none;
+    width:30px;
+  }
+  .stop h3{
+    font-family:'Fraunces',serif;font-weight:600;font-size:1.18rem;
+    line-height:1.15;
+  }
+  .addr{font-size:.86rem;color:#7a6a55;margin:2px 0 10px 42px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-left:42px}
+  .tag{
+    font-size:.74rem;font-weight:500;padding:4px 10px;border-radius:99px;
+    background:#fff;border:1px solid var(--line);color:#5d4f3d;
+  }
+  .tag.star{color:var(--gold);border-color:#e3d2a8}
+  .tag.warn{background:#fbeae5;border-color:#eec3b6;color:var(--accent)}
+  .tag.open{background:#e6efe9;border-color:#bcd6c9;color:var(--accent-2)}
+  .hours{font-size:.8rem;color:#8a7a64;margin:8px 0 0 42px}
+
+  .note{
+    margin-top:30px;
+    background:#fbf4e8;
+    border:1px solid #e9d9b8;
+    border-left:4px solid var(--gold);
+    border-radius:12px;
+    padding:16px 18px;
+    font-size:.88rem;
+    color:#6a5638;
+  }
+  .note b{color:var(--accent)}
+
+  footer{
+    text-align:center;margin-top:38px;font-size:.78rem;color:#9a8a72;
+  }
+  .dist{
+    display:inline-flex;gap:18px;margin:8px 0 22px;
+    font-size:.84rem;color:#6a5b48;justify-content:center;width:100%;
+  }
+  .dist b{font-family:'Fraunces',serif;font-size:1.05rem;color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Madrid · Barrio de Salamanca</div>
+    <h1>Roteiro de<br><em>óticas</em></h1>
+    <p class="sub">Seis lojas, o menor percurso a pé, do norte ao sul.</p>
+    <div class="rule"><span>Como chegar</span></div>
+  </header>
+
+  <div class="metro">
+    <h2><span class="mpin">M</span> Saída: Núñez de Balboa</h2>
+    <div class="leg">
+      <span class="line-badge l4">4</span>
+      <p><b>Avenida de la Paz</b> → linha 4 sentido centro até <b>Goya</b>.</p>
+    </div>
+    <div class="leg">
+      <span class="line-badge l9">9</span>
+      <p>Em Goya, troque para a linha 9 (ou <span style="display:inline-grid;place-items:center;width:18px;height:18px;border-radius:4px;background:#8fc63d;color:#1a1410;font-weight:700;font-size:.7rem;vertical-align:middle">5</span>) uma parada até <b>Núñez de Balboa</b>.</p>
+    </div>
+    <div class="leg">
+      <span class="line-badge l4" style="background:transparent;border:1px solid rgba(244,236,224,.3)">↩</span>
+      <p>Na volta, saia pela <b>Multiópticas em Goya</b>: linha 4 direto para casa, sem troca.</p>
+    </div>
+  </div>
+
+  <div class="dist">
+    <span>Distância <b>≈ 1,8 km</b></span>
+    <span>A pé <b>≈ 25 min</b></span>
+    <span>Paradas <b>6</b></span>
+  </div>
+
+  <div class="stops">
+
+    <div class="stop">
+      <div class="stop-top"><span class="num">1</span><h3>Visual Click</h3></div>
+      <p class="addr">Calle Velázquez, 99</p>
+      <div class="meta">
+        <span class="tag star">★ 4,8 · 674 avaliações</span>
+        <span class="tag">Ponto de partida</span>
+      </div>
+      <p class="hours">Aberta 10:00–20:30 · sáb. até 14:00</p>
+    </div>
+
+    <div class="stop">
+      <div class="stop-top"><span class="num">2</span><h3>Ulloa Óptico</h3></div>
+      <p class="addr">Calle Serrano, 92</p>
+      <div class="meta">
+        <span class="tag star">★ 4,6</span>
+        <span class="tag open">Aberta 10:00–20:30</span>
+      </div>
+    </div>
+
+    <div class="stop">
+      <div class="stop-top"><span class="num">3</span><h3>Alain Afflelou</h3></div>
+      <p class="addr">Calle José Ortega y Gasset, 52</p>
+      <div class="meta">
+        <span class="tag star">★ 4,8</span>
+        <span class="tag warn">Fecha 14:00–17:00</span>
+      </div>
+      <p class="hours">Passe por aqui antes do meio-dia ou depois das 17:00.</p>
+    </div>
+
+    <div class="stop">
+      <div class="stop-top"><span class="num">4</span><h3>Optica2000</h3></div>
+      <p class="addr">El Corte Inglés · Calle Serrano, 47</p>
+      <div class="meta">
+        <span class="tag star">★ 4,8</span>
+        <span class="tag open">Horário amplo, até 22:00</span>
+      </div>
+      <p class="hours">Boa para deixar por último se você se atrasar.</p>
+    </div>
+
+    <div class="stop">
+      <div class="stop-top"><span class="num">5</span><h3>General Optica</h3></div>
+      <p class="addr">Calle Serrano, 54</p>
+      <div class="meta">
+        <span class="tag star">★ 4,8 · 303 avaliações</span>
+        <span class="tag open">Aberta 10:00–21:00</span>
+      </div>
+      <p class="hours">Do outro lado da rua, em frente à Optica2000.</p>
+    </div>
+
+    <div class="stop">
+      <div class="stop-top"><span class="num">6</span><h3>Multiópticas</h3></div>
+      <p class="addr">Calle de Goya, 44</p>
+      <div class="meta">
+        <span class="tag star">★ 4,7</span>
+        <span class="tag">Parada final · junto ao metro Goya</span>
+      </div>
+      <p class="hours">Aberta 10:30–20:30.</p>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <b>Dica de horário:</b> a Alain Afflelou (parada 3) é a única que fecha ao meio-dia. Se sair de manhã, encaixe-a antes das 14:00. Todas as outras abrem em horário corrido, então o sentido norte a sul funciona bem em qualquer momento do dia.
+  </div>
+
+  <footer>
+    Domingo a maioria fecha. Confira sempre antes de sair.
+  </footer>
+
+</div>
+</body>
+</html>
